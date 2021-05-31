@@ -3,23 +3,43 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3A9E315265F4E5200372776 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A9E314265F4E5200372776 /* EntryView.swift */; };
+		D3BB39802664D93300E0BF4D /* BillCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB397F2664D93300E0BF4D /* BillCurveView.swift */; };
+		D3BB39842664DDC200E0BF4D /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D3BB39832664DDC200E0BF4D /* SwiftUICharts */; };
+		D3BB39872664E9A700E0BF4D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39862664E9A700E0BF4D /* DateExtension.swift */; };
+		D3BB398B2664F03E00E0BF4D /* iLineChart in Frameworks */ = {isa = PBXBuildFile; productRef = D3BB398A2664F03E00E0BF4D /* iLineChart */; };
+		D3BB398E2665049100E0BF4D /* testdata.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3BB398D2665049100E0BF4D /* testdata.txt */; };
 		D3E37A17265F431500E751F9 /* TakeItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E37A16265F431500E751F9 /* TakeItApp.swift */; };
-		D3E37A19265F431500E751F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E37A18265F431500E751F9 /* ContentView.swift */; };
 		D3E37A1B265F431700E751F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E37A1A265F431700E751F9 /* Assets.xcassets */; };
 		D3E37A1E265F431700E751F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E37A1D265F431700E751F9 /* Preview Assets.xcassets */; };
+		D3E37A42265F438C00E751F9 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E37A41265F438C00E751F9 /* DataStorage.swift */; };
+		D3E37A45265F439E00E751F9 /* log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E37A44265F439E00E751F9 /* log.swift */; };
+		D3E37A49265F43DF00E751F9 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E37A48265F43DF00E751F9 /* Storage.swift */; };
+		D3E37A4E265F443100E751F9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E37A4D265F443100E751F9 /* HomeView.swift */; };
+		D3E37A51265F444800E751F9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E37A50265F444800E751F9 /* LoginView.swift */; };
+		D3E4930E2664AC6900C52F53 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E4930D2664AC6900C52F53 /* Bill.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3A9E314265F4E5200372776 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		D3BB397F2664D93300E0BF4D /* BillCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCurveView.swift; sourceTree = "<group>"; };
+		D3BB39862664E9A700E0BF4D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		D3BB398D2665049100E0BF4D /* testdata.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testdata.txt; sourceTree = "<group>"; };
 		D3E37A13265F431500E751F9 /* TakeIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E37A16265F431500E751F9 /* TakeItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeItApp.swift; sourceTree = "<group>"; };
-		D3E37A18265F431500E751F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D3E37A1A265F431700E751F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3E37A1D265F431700E751F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3E37A1F265F431700E751F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3E37A41265F438C00E751F9 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		D3E37A44265F439E00E751F9 /* log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = log.swift; sourceTree = "<group>"; };
+		D3E37A48265F43DF00E751F9 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		D3E37A4D265F443100E751F9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D3E37A50265F444800E751F9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D3E4930D2664AC6900C52F53 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3BB39842664DDC200E0BF4D /* SwiftUICharts in Frameworks */,
+				D3BB398B2664F03E00E0BF4D /* iLineChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,8 +75,11 @@
 			isa = PBXGroup;
 			children = (
 				D3E37A16265F431500E751F9 /* TakeItApp.swift */,
-				D3E37A18265F431500E751F9 /* ContentView.swift */,
-				D3E37A1A265F431700E751F9 /* Assets.xcassets */,
+				D3A9E314265F4E5200372776 /* EntryView.swift */,
+				D3E493092664AC4700C52F53 /* Home */,
+				D3E37A54265F446100E751F9 /* Login */,
+				D3E37A4B265F440D00E751F9 /* Utils */,
+				D3E37A53265F445100E751F9 /* Source */,
 				D3E37A1F265F431700E751F9 /* Info.plist */,
 				D3E37A1C265F431700E751F9 /* Preview Content */,
 			);
@@ -67,6 +92,92 @@
 				D3E37A1D265F431700E751F9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D3E37A4B265F440D00E751F9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D3E37A48265F43DF00E751F9 /* Storage.swift */,
+				D3E37A41265F438C00E751F9 /* DataStorage.swift */,
+				D3E37A44265F439E00E751F9 /* log.swift */,
+				D3BB39862664E9A700E0BF4D /* DateExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D3E37A53265F445100E751F9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D3BB398D2665049100E0BF4D /* testdata.txt */,
+				D3E37A1A265F431700E751F9 /* Assets.xcassets */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		D3E37A54265F446100E751F9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D3E37A57265F447F00E751F9 /* Controller */,
+				D3E37A56265F447B00E751F9 /* View */,
+				D3E37A55265F447500E751F9 /* Model */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D3E37A55265F447500E751F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D3E37A56265F447B00E751F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D3E37A57265F447F00E751F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D3E37A50265F444800E751F9 /* LoginView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D3E493092664AC4700C52F53 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D3E4930C2664AC5A00C52F53 /* Model */,
+				D3E4930B2664AC5400C52F53 /* Controller */,
+				D3E4930A2664AC4E00C52F53 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D3E4930A2664AC4E00C52F53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D3BB397F2664D93300E0BF4D /* BillCurveView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D3E4930B2664AC5400C52F53 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D3E37A4D265F443100E751F9 /* HomeView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D3E4930C2664AC5A00C52F53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D3E4930D2664AC6900C52F53 /* Bill.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +196,10 @@
 			dependencies = (
 			);
 			name = TakeIt;
+			packageProductDependencies = (
+				D3BB39832664DDC200E0BF4D /* SwiftUICharts */,
+				D3BB398A2664F03E00E0BF4D /* iLineChart */,
+			);
 			productName = TakeIt;
 			productReference = D3E37A13265F431500E751F9 /* TakeIt.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +227,10 @@
 				Base,
 			);
 			mainGroup = D3E37A0A265F431500E751F9;
+			packageReferences = (
+				D3BB39822664DDC200E0BF4D /* XCRemoteSwiftPackageReference "ChartView" */,
+				D3BB39892664F03E00E0BF4D /* XCRemoteSwiftPackageReference "iLineChart" */,
+			);
 			productRefGroup = D3E37A14265F431500E751F9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3E37A1E265F431700E751F9 /* Preview Assets.xcassets in Resources */,
+				D3BB398E2665049100E0BF4D /* testdata.txt in Resources */,
 				D3E37A1B265F431700E751F9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,8 +258,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3E37A19265F431500E751F9 /* ContentView.swift in Sources */,
+				D3E4930E2664AC6900C52F53 /* Bill.swift in Sources */,
+				D3BB39872664E9A700E0BF4D /* DateExtension.swift in Sources */,
+				D3E37A51265F444800E751F9 /* LoginView.swift in Sources */,
+				D3E37A42265F438C00E751F9 /* DataStorage.swift in Sources */,
+				D3BB39802664D93300E0BF4D /* BillCurveView.swift in Sources */,
+				D3E37A45265F439E00E751F9 /* log.swift in Sources */,
 				D3E37A17265F431500E751F9 /* TakeItApp.swift in Sources */,
+				D3A9E315265F4E5200372776 /* EntryView.swift in Sources */,
+				D3E37A4E265F443100E751F9 /* HomeView.swift in Sources */,
+				D3E37A49265F43DF00E751F9 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +454,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3BB39822664DDC200E0BF4D /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.5;
+			};
+		};
+		D3BB39892664F03E00E0BF4D /* XCRemoteSwiftPackageReference "iLineChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AlexFine/iLineChart.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3BB39832664DDC200E0BF4D /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3BB39822664DDC200E0BF4D /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+		D3BB398A2664F03E00E0BF4D /* iLineChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3BB39892664F03E00E0BF4D /* XCRemoteSwiftPackageReference "iLineChart" */;
+			productName = iLineChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D3E37A0B265F431500E751F9 /* Project object */;
 }

@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct TakeItApp: App {
+    @AppStorage("userToken", store: Storage.defaults) private var userToken: String = ""
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            EntryView()
         }
     }
+}
+
+extension View {
+    var screen: CGRect { UIScreen.main.bounds }
 }
