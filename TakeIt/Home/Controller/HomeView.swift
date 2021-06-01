@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import iLineChart
+
 
 struct HomeView: View {
     @State private var bills: [Bill] = []

@@ -38,6 +38,7 @@ struct Bill: Codable, Identifiable {
     let id: UUID
     let category: Category
     let remarks: String
+    let timeString: String
     let value: Double
     let time: Int
 }

@@ -3,16 +3,34 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D3A9E315265F4E5200372776 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A9E314265F4E5200372776 /* EntryView.swift */; };
 		D3BB39802664D93300E0BF4D /* BillCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB397F2664D93300E0BF4D /* BillCurveView.swift */; };
-		D3BB39842664DDC200E0BF4D /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D3BB39832664DDC200E0BF4D /* SwiftUICharts */; };
 		D3BB39872664E9A700E0BF4D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39862664E9A700E0BF4D /* DateExtension.swift */; };
-		D3BB398B2664F03E00E0BF4D /* iLineChart in Frameworks */ = {isa = PBXBuildFile; productRef = D3BB398A2664F03E00E0BF4D /* iLineChart */; };
 		D3BB398E2665049100E0BF4D /* testdata.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3BB398D2665049100E0BF4D /* testdata.txt */; };
+		D3BB399D26661C5D00E0BF4D /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB399C26661C5D00E0BF4D /* StatisticView.swift */; };
+		D3BB39D12666238900E0BF4D /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39BC2666238900E0BF4D /* LineChart.swift */; };
+		D3BB39D22666238900E0BF4D /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39BE2666238900E0BF4D /* BarChartView.swift */; };
+		D3BB39D32666238900E0BF4D /* BarChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39BF2666238900E0BF4D /* BarChartRow.swift */; };
+		D3BB39D42666238900E0BF4D /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39C02666238900E0BF4D /* LabelView.swift */; };
+		D3BB39D52666238900E0BF4D /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39C12666238900E0BF4D /* BarChartCell.swift */; };
+		D3BB39D62666238900E0BF4D /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39C22666238900E0BF4D /* Helpers.swift */; };
+		D3BB39D72666238900E0BF4D /* PieChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39C42666238900E0BF4D /* PieChartRow.swift */; };
+		D3BB39D82666238900E0BF4D /* PieChartHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39C52666238900E0BF4D /* PieChartHelpers.swift */; };
+		D3BB39D92666238900E0BF4D /* PieChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39C62666238900E0BF4D /* PieChartCell.swift */; };
+		D3BB39DA2666238900E0BF4D /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39C72666238900E0BF4D /* PieChartView.swift */; };
+		D3BB39DB2666238900E0BF4D /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39C92666238900E0BF4D /* IndicatorPoint.swift */; };
+		D3BB39DC2666238900E0BF4D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39CA2666238900E0BF4D /* LineView.swift */; };
+		D3BB39DD2666238900E0BF4D /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39CB2666238900E0BF4D /* Legend.swift */; };
+		D3BB39DE2666238900E0BF4D /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39CC2666238900E0BF4D /* LineChartView.swift */; };
+		D3BB39DF2666238900E0BF4D /* MagnifierRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39CD2666238900E0BF4D /* MagnifierRect.swift */; };
+		D3BB39E02666238900E0BF4D /* Path+QuadCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39CE2666238900E0BF4D /* Path+QuadCurve.swift */; };
+		D3BB39E12666238900E0BF4D /* MultiLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39CF2666238900E0BF4D /* MultiLineChartView.swift */; };
+		D3BB39E22666238900E0BF4D /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39D02666238900E0BF4D /* Line.swift */; };
+		D3BB39E72666246F00E0BF4D /* iColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39E62666246F00E0BF4D /* iColor.swift */; };
 		D3E37A17265F431500E751F9 /* TakeItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E37A16265F431500E751F9 /* TakeItApp.swift */; };
 		D3E37A1B265F431700E751F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E37A1A265F431700E751F9 /* Assets.xcassets */; };
 		D3E37A1E265F431700E751F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E37A1D265F431700E751F9 /* Preview Assets.xcassets */; };
@@ -29,6 +47,26 @@
 		D3BB397F2664D93300E0BF4D /* BillCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCurveView.swift; sourceTree = "<group>"; };
 		D3BB39862664E9A700E0BF4D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		D3BB398D2665049100E0BF4D /* testdata.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testdata.txt; sourceTree = "<group>"; };
+		D3BB399C26661C5D00E0BF4D /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
+		D3BB39BC2666238900E0BF4D /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		D3BB39BE2666238900E0BF4D /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		D3BB39BF2666238900E0BF4D /* BarChartRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartRow.swift; sourceTree = "<group>"; };
+		D3BB39C02666238900E0BF4D /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		D3BB39C12666238900E0BF4D /* BarChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
+		D3BB39C22666238900E0BF4D /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		D3BB39C42666238900E0BF4D /* PieChartRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartRow.swift; sourceTree = "<group>"; };
+		D3BB39C52666238900E0BF4D /* PieChartHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartHelpers.swift; sourceTree = "<group>"; };
+		D3BB39C62666238900E0BF4D /* PieChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartCell.swift; sourceTree = "<group>"; };
+		D3BB39C72666238900E0BF4D /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		D3BB39C92666238900E0BF4D /* IndicatorPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorPoint.swift; sourceTree = "<group>"; };
+		D3BB39CA2666238900E0BF4D /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		D3BB39CB2666238900E0BF4D /* Legend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legend.swift; sourceTree = "<group>"; };
+		D3BB39CC2666238900E0BF4D /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		D3BB39CD2666238900E0BF4D /* MagnifierRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnifierRect.swift; sourceTree = "<group>"; };
+		D3BB39CE2666238900E0BF4D /* Path+QuadCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+QuadCurve.swift"; sourceTree = "<group>"; };
+		D3BB39CF2666238900E0BF4D /* MultiLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineChartView.swift; sourceTree = "<group>"; };
+		D3BB39D02666238900E0BF4D /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		D3BB39E62666246F00E0BF4D /* iColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iColor.swift; sourceTree = "<group>"; };
 		D3E37A13265F431500E751F9 /* TakeIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E37A16265F431500E751F9 /* TakeItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeItApp.swift; sourceTree = "<group>"; };
 		D3E37A1A265F431700E751F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,14 +85,109 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3BB39842664DDC200E0BF4D /* SwiftUICharts in Frameworks */,
-				D3BB398B2664F03E00E0BF4D /* iLineChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3BB399726661C3B00E0BF4D /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				D3BB399B26661C5000E0BF4D /* Controller */,
+				D3BB399A26661C4D00E0BF4D /* View */,
+				D3BB399926661C4900E0BF4D /* Model */,
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
+		D3BB399926661C4900E0BF4D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D3BB399A26661C4D00E0BF4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D3BB399B26661C5000E0BF4D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D3BB399C26661C5D00E0BF4D /* StatisticView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D3BB39BA2666238900E0BF4D /* iLineChart */ = {
+			isa = PBXGroup;
+			children = (
+				D3BB39BB2666238900E0BF4D /* Wrappers */,
+				D3BB39BD2666238900E0BF4D /* BarChart */,
+				D3BB39C22666238900E0BF4D /* Helpers.swift */,
+				D3BB39C32666238900E0BF4D /* PieChart */,
+				D3BB39C82666238900E0BF4D /* iLineChart */,
+			);
+			path = iLineChart;
+			sourceTree = "<group>";
+		};
+		D3BB39BB2666238900E0BF4D /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				D3BB39BC2666238900E0BF4D /* LineChart.swift */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
+		D3BB39BD2666238900E0BF4D /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				D3BB39BE2666238900E0BF4D /* BarChartView.swift */,
+				D3BB39BF2666238900E0BF4D /* BarChartRow.swift */,
+				D3BB39C02666238900E0BF4D /* LabelView.swift */,
+				D3BB39C12666238900E0BF4D /* BarChartCell.swift */,
+			);
+			path = BarChart;
+			sourceTree = "<group>";
+		};
+		D3BB39C32666238900E0BF4D /* PieChart */ = {
+			isa = PBXGroup;
+			children = (
+				D3BB39C42666238900E0BF4D /* PieChartRow.swift */,
+				D3BB39C52666238900E0BF4D /* PieChartHelpers.swift */,
+				D3BB39C62666238900E0BF4D /* PieChartCell.swift */,
+				D3BB39C72666238900E0BF4D /* PieChartView.swift */,
+			);
+			path = PieChart;
+			sourceTree = "<group>";
+		};
+		D3BB39C82666238900E0BF4D /* iLineChart */ = {
+			isa = PBXGroup;
+			children = (
+				D3BB39C92666238900E0BF4D /* IndicatorPoint.swift */,
+				D3BB39CA2666238900E0BF4D /* LineView.swift */,
+				D3BB39CB2666238900E0BF4D /* Legend.swift */,
+				D3BB39CC2666238900E0BF4D /* LineChartView.swift */,
+				D3BB39CD2666238900E0BF4D /* MagnifierRect.swift */,
+				D3BB39CE2666238900E0BF4D /* Path+QuadCurve.swift */,
+				D3BB39CF2666238900E0BF4D /* MultiLineChartView.swift */,
+				D3BB39D02666238900E0BF4D /* Line.swift */,
+			);
+			path = iLineChart;
+			sourceTree = "<group>";
+		};
+		D3BB39E52666246F00E0BF4D /* iColor */ = {
+			isa = PBXGroup;
+			children = (
+				D3BB39E62666246F00E0BF4D /* iColor.swift */,
+			);
+			path = iColor;
+			sourceTree = "<group>";
+		};
 		D3E37A0A265F431500E751F9 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +209,7 @@
 			children = (
 				D3E37A16265F431500E751F9 /* TakeItApp.swift */,
 				D3A9E314265F4E5200372776 /* EntryView.swift */,
+				D3BB399726661C3B00E0BF4D /* Statistic */,
 				D3E493092664AC4700C52F53 /* Home */,
 				D3E37A54265F446100E751F9 /* Login */,
 				D3E37A4B265F440D00E751F9 /* Utils */,
@@ -97,6 +231,8 @@
 		D3E37A4B265F440D00E751F9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D3BB39E52666246F00E0BF4D /* iColor */,
+				D3BB39BA2666238900E0BF4D /* iLineChart */,
 				D3E37A48265F43DF00E751F9 /* Storage.swift */,
 				D3E37A41265F438C00E751F9 /* DataStorage.swift */,
 				D3E37A44265F439E00E751F9 /* log.swift */,
@@ -197,8 +333,6 @@
 			);
 			name = TakeIt;
 			packageProductDependencies = (
-				D3BB39832664DDC200E0BF4D /* SwiftUICharts */,
-				D3BB398A2664F03E00E0BF4D /* iLineChart */,
 			);
 			productName = TakeIt;
 			productReference = D3E37A13265F431500E751F9 /* TakeIt.app */;
@@ -228,8 +362,6 @@
 			);
 			mainGroup = D3E37A0A265F431500E751F9;
 			packageReferences = (
-				D3BB39822664DDC200E0BF4D /* XCRemoteSwiftPackageReference "ChartView" */,
-				D3BB39892664F03E00E0BF4D /* XCRemoteSwiftPackageReference "iLineChart" */,
 			);
 			productRefGroup = D3E37A14265F431500E751F9 /* Products */;
 			projectDirPath = "";
@@ -258,16 +390,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3BB39DC2666238900E0BF4D /* LineView.swift in Sources */,
+				D3BB39DA2666238900E0BF4D /* PieChartView.swift in Sources */,
+				D3BB39D72666238900E0BF4D /* PieChartRow.swift in Sources */,
+				D3BB39E12666238900E0BF4D /* MultiLineChartView.swift in Sources */,
 				D3E4930E2664AC6900C52F53 /* Bill.swift in Sources */,
+				D3BB39D82666238900E0BF4D /* PieChartHelpers.swift in Sources */,
 				D3BB39872664E9A700E0BF4D /* DateExtension.swift in Sources */,
+				D3BB39E02666238900E0BF4D /* Path+QuadCurve.swift in Sources */,
+				D3BB39E22666238900E0BF4D /* Line.swift in Sources */,
+				D3BB39D22666238900E0BF4D /* BarChartView.swift in Sources */,
+				D3BB39D92666238900E0BF4D /* PieChartCell.swift in Sources */,
 				D3E37A51265F444800E751F9 /* LoginView.swift in Sources */,
+				D3BB39D52666238900E0BF4D /* BarChartCell.swift in Sources */,
 				D3E37A42265F438C00E751F9 /* DataStorage.swift in Sources */,
+				D3BB39D32666238900E0BF4D /* BarChartRow.swift in Sources */,
 				D3BB39802664D93300E0BF4D /* BillCurveView.swift in Sources */,
 				D3E37A45265F439E00E751F9 /* log.swift in Sources */,
+				D3BB39DF2666238900E0BF4D /* MagnifierRect.swift in Sources */,
 				D3E37A17265F431500E751F9 /* TakeItApp.swift in Sources */,
+				D3BB39DB2666238900E0BF4D /* IndicatorPoint.swift in Sources */,
+				D3BB39DE2666238900E0BF4D /* LineChartView.swift in Sources */,
+				D3BB39E72666246F00E0BF4D /* iColor.swift in Sources */,
+				D3BB39D62666238900E0BF4D /* Helpers.swift in Sources */,
 				D3A9E315265F4E5200372776 /* EntryView.swift in Sources */,
+				D3BB39D12666238900E0BF4D /* LineChart.swift in Sources */,
 				D3E37A4E265F443100E751F9 /* HomeView.swift in Sources */,
+				D3BB399D26661C5D00E0BF4D /* StatisticView.swift in Sources */,
 				D3E37A49265F43DF00E751F9 /* Storage.swift in Sources */,
+				D3BB39DD2666238900E0BF4D /* Legend.swift in Sources */,
+				D3BB39D42666238900E0BF4D /* LabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,38 +606,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D3BB39822664DDC200E0BF4D /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.5;
-			};
-		};
-		D3BB39892664F03E00E0BF4D /* XCRemoteSwiftPackageReference "iLineChart" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AlexFine/iLineChart.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.6.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D3BB39832664DDC200E0BF4D /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3BB39822664DDC200E0BF4D /* XCRemoteSwiftPackageReference "ChartView" */;
-			productName = SwiftUICharts;
-		};
-		D3BB398A2664F03E00E0BF4D /* iLineChart */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3BB39892664F03E00E0BF4D /* XCRemoteSwiftPackageReference "iLineChart" */;
-			productName = iLineChart;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D3E37A0B265F431500E751F9 /* Project object */;
 }

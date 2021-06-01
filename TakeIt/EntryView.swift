@@ -18,7 +18,7 @@ struct EntryView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selection) {
-                Text("statistic")
+                StatisticView()
                     .tag(EntryType.statistic)
                 HomeView(tabSelection: $selection)
                     .tag(EntryType.home)
