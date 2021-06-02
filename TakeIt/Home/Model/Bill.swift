@@ -19,7 +19,7 @@ protocol CategoryLike: Codable {
     var original: Bool { get set }
 }
 
-struct Category: CategoryLike {
+struct Category: CategoryLike, Hashable {
     
     init(icon: String = "", name: String, type: BillType, original: Bool) {
         self.icon = icon
@@ -36,9 +36,9 @@ struct Category: CategoryLike {
 
 struct Bill: Codable, Identifiable {
     let id: UUID
-    let category: Category
-    let remarks: String
-    let timeString: String
-    let value: Double
-    let time: Int
+    var category: Category
+    var remarks: String
+    var timeString: String
+    var value: Double
+    var time: Int
 }

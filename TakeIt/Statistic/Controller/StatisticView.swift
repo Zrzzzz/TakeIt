@@ -7,63 +7,45 @@
 
 import SwiftUI
 
+typealias DayBill = (String, [Bill])
+
 struct StatisticView: View {
     @State private var bills: [Bill] = []
     
     private var balance: Double {
         return bills.map{ $0.category.type == .in ? $0.value : -$0.value }.reduce(0, +)
     }
-    
-    private typealias DayBill = (String, [Bill])
     @State private var currentDate = Date()
     @State private var dayBills: [DayBill] = []
+    @State private var isAddingBill: Bool = true
     
     var body: some View {
-        VStack {
-            HStack {
-                Text(String(format: "Balance: %.1f", balance))
-                    .bold()
-                    .font(.title)
-                Spacer()
-                Button(action: {}, label: {
+        Group {
+            if isAddingBill {
+                AddBillView()
+            } else {
+                VStack {
                     HStack {
-                        Text("Add One")
-                        Image(systemName: "dollarsign.square.fill")
-                            .renderingMode(.template)
-                    }
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color(#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)))
-                    .cornerRadius(15)
-                    .clipped()
-                    .shadow(color: Color(#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)), radius: 5, x: 2, y: 2)
-                })
-            }
-            
-            List {
-                ForEach(dayBills, id: \.0) { dayBill -> AnyView in
-                    let dayIn = dayBill.1.filter { $0.category.type == .in }.map{ $0.value }.reduce(0, +)
-                    let dayOut = dayBill.1.filter { $0.category.type == .out }.map{ $0.value }.reduce(0, +)
-                    let dayTotal = dayIn + dayOut
-                    
-                    return AnyView(Section(header:
-                                            HStack(alignment: .top) {
-                                                Text(dayBill.0)
-                                                    .bold()
-                                                    .font(.title3)
-                                                Spacer()
-                                                Text(String(format: "In: %.1f Out: %.1f\nTotal: %.1f", dayIn, dayOut, dayTotal))
-                                            }
-                                            .modifier(SectionHeaderModifier())
-                    ) {
-                        VStack {
-                            ForEach(dayBill.1, id: \.id) { bill in
-                                BillCellView(bill: bill)
-                                    .frame(maxWidth: .infinity, alignment: bill.category.type == .in ? .trailing : .leading)
+                        Text(String(format: "Balance: %.1f", balance))
+                            .bold()
+                            .font(.title)
+                        Spacer()
+                        Button(action: { withAnimation { isAddingBill = true } }, label: {
+                            HStack {
+                                Text("Add One")
+                                Image(systemName: "dollarsign.square.fill")
+                                    .renderingMode(.template)
                             }
-                        }
-                        .frame(maxWidth: .infinity)
-                    })
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color(#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)))
+                            .cornerRadius(15)
+                            .clipped()
+                            .shadow(color: Color(#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)), radius: 5, x: 2, y: 2)
+                        })
+                    }
+                    
+                    DayBillListView(dayBills: $dayBills)
                 }
             }
         }
@@ -94,7 +76,6 @@ struct StatisticView: View {
         for _ in 0..<daycnt {
             let daystr = formatter.string(from: currentDate)
             dayBills.append((daystr, bills.filter { Date(timeIntervalSince1970: TimeInterval($0.time)).isInSameDay(as: currentDate) }))
-            print(dayBills)
             currentDate.addTimeInterval(-86400)
         }
     }
@@ -158,7 +139,10 @@ struct StatisticView_Previews: PreviewProvider {
 
 struct BillCellView_Previews: PreviewProvider {
     static var previews: some View {
-        BillCellView(bill: Bill(id: UUID(), category: Category(icon: "shopping", name: "shopping", type: .in, original: true), remarks: "哈哈哈", timeString: "2021-06-01", value: 2333.3, time: 1617436628))
+        VStack {
+            BillCellView(bill: Bill(id: UUID(), category: Category(icon: "shopping", name: "shopping", type: .in, original: true), remarks: "哈哈哈", timeString: "2021-06-01", value: 2333.3, time: 1617436628))
+            BillCellView(bill: Bill(id: UUID(), category: Category(icon: "shopping", name: "shopping", type: .out, original: true), remarks: "哈哈哈", timeString: "2021-06-01", value: 2333.3, time: 1617436628))
+        }
     }
 }
 
@@ -177,5 +161,38 @@ fileprivate struct SectionHeaderModifier: ViewModifier {
                         leading: 0,
                         bottom: 0,
                         trailing: 0))
+    }
+}
+
+struct DayBillListView: View {
+    @Binding var dayBills: [DayBill]
+    
+    var body: some View {
+        List {
+            ForEach(dayBills, id: \.0) { dayBill -> AnyView in
+                let dayIn = dayBill.1.filter { $0.category.type == .in }.map{ $0.value }.reduce(0, +)
+                let dayOut = dayBill.1.filter { $0.category.type == .out }.map{ $0.value }.reduce(0, +)
+                let dayTotal = dayIn + dayOut
+                
+                return AnyView(Section(header:
+                                        HStack(alignment: .top) {
+                                            Text(dayBill.0)
+                                                .bold()
+                                                .font(.title3)
+                                            Spacer()
+                                            Text(String(format: "In: %.1f Out: %.1f\nTotal: %.1f", dayIn, dayOut, dayTotal))
+                                        }
+                                        .modifier(SectionHeaderModifier())
+                ) {
+                    VStack {
+                        ForEach(dayBill.1, id: \.id) { bill in
+                            BillCellView(bill: bill)
+                                .frame(maxWidth: .infinity, alignment: bill.category.type == .in ? .trailing : .leading)
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                })
+            }
+        }
     }
 }

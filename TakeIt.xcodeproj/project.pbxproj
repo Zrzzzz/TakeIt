@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3461F8F26677E0A00FF9847 /* AddBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3461F8E26677E0A00FF9847 /* AddBillView.swift */; };
 		D3A9E315265F4E5200372776 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A9E314265F4E5200372776 /* EntryView.swift */; };
 		D3BB39802664D93300E0BF4D /* BillCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB397F2664D93300E0BF4D /* BillCurveView.swift */; };
 		D3BB39872664E9A700E0BF4D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39862664E9A700E0BF4D /* DateExtension.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3461F8E26677E0A00FF9847 /* AddBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillView.swift; sourceTree = "<group>"; };
 		D3A9E314265F4E5200372776 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		D3BB397F2664D93300E0BF4D /* BillCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCurveView.swift; sourceTree = "<group>"; };
 		D3BB39862664E9A700E0BF4D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		D3BB399A26661C4D00E0BF4D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D3461F8E26677E0A00FF9847 /* AddBillView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				D3BB39E22666238900E0BF4D /* Line.swift in Sources */,
 				D3BB39D22666238900E0BF4D /* BarChartView.swift in Sources */,
 				D3BB39D92666238900E0BF4D /* PieChartCell.swift in Sources */,
+				D3461F8F26677E0A00FF9847 /* AddBillView.swift in Sources */,
 				D3E37A51265F444800E751F9 /* LoginView.swift in Sources */,
 				D3BB39D52666238900E0BF4D /* BarChartCell.swift in Sources */,
 				D3E37A42265F438C00E751F9 /* DataStorage.swift in Sources */,
