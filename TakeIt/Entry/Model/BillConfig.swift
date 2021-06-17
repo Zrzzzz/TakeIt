@@ -32,12 +32,17 @@ class BillConfig: ObservableObject {
     func loadData(userPhoneNumber: String) {
         userPn = userPhoneNumber
         bills = DataStorage.retreive("\(userPhoneNumber)_data", from: .caches, as: [Bill].self) ?? []
-        categorys = DataStorage.retreive("\(userPhoneNumber)_category", from: .caches, as: [Category].self) ?? []
+        categorys = DataStorage.retreive("\(userPhoneNumber)_category", from: .caches, as: [Category].self) ?? [Category(icon: "shopping", name: "shopping", type: .out, original: true),
+                                                                                                                Category(icon: "game", name: "game", type: .out, original: true),
+                                                                                                                Category(icon: "payoff", name: "payoff", type: .in, original: true),
+                                                                                                                Category(icon: "standard", name: "standard", type: .out, original: true),
+                                                                                                                Category(icon: "wage", name: "wage", type: .in, original: true),
+                                                                                                                Category(icon: "redbag", name: "redbag", type: .in, original: true)]
     }
     
     func saveData() {
         DataStorage.store(bills, in: .caches, as: "\(userPn)_data")
-        DataStorage.store(bills, in: .caches, as: "\(userPn)_category")
+        DataStorage.store(categorys, in: .caches, as: "\(userPn)_category")
     }
     
     func loadDayBills(daycnt: Int) {
@@ -57,6 +62,12 @@ class BillConfig: ObservableObject {
     func clear() {
         bills = []
         dayBills = []
+        categorys = [Category(icon: "shopping", name: "shopping", type: .out, original: true),
+                     Category(icon: "game", name: "game", type: .out, original: true),
+                     Category(icon: "payoff", name: "payoff", type: .in, original: true),
+                     Category(icon: "standard", name: "standard", type: .out, original: true),
+                     Category(icon: "wage", name: "wage", type: .in, original: true),
+                     Category(icon: "redbag", name: "redbag", type: .in, original: true)]
         isAddingBill = false
         isEditing = false
         dayBillToEdit = Bill(id: UUID(), category: .init(icon: "", name: "", type: .in, original: true), remarks: "", timeString: "", value: 0, time: 0)

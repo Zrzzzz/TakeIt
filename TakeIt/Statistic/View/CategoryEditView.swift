@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct CategoryEditView: View {
-    @Binding var categorys: [Category]
     @State private var billType: BillType = .in
-    
-    
+    @EnvironmentObject var billConfig: BillConfig
     @Binding var showCategoryEditor: Bool
     
     // for adding newCategory
@@ -37,7 +35,7 @@ struct CategoryEditView: View {
                 })
             }
             
-            if (addingCategory) {
+            if addingCategory {
                 TextField("Category Name", text: $categoryName)
                 HStack {
                     Spacer()
@@ -53,8 +51,9 @@ struct CategoryEditView: View {
                     Button(action: {
                         withAnimation {
                             addingCategory = false
-                            categorys.append(Category(icon: "", name: categoryName, type: billType, original: false))
+                            billConfig.categorys.append(Category(icon: "", name: categoryName, type: billType, original: false))
                             categoryName = ""
+                            billConfig.saveData()
                         }
                     }, label: {
                         Text("confirm")
@@ -81,7 +80,7 @@ struct CategoryEditView: View {
                 .pickerStyle(SegmentedPickerStyle())
             
             List {
-                ForEach (categorys.filter { $0.type == billType }, id: \.self) { category in
+                ForEach (billConfig.categorys.filter { $0.type == billType }, id: \.self) { category in
                     HStack {
                         Text(category.name)
                         Image(category.icon)
@@ -90,12 +89,13 @@ struct CategoryEditView: View {
                     }
                 }
                 .onDelete { (index) in
-                    let cate = categorys.filter { $0.type == billType }[index.first!]
+                    let cate = billConfig.categorys.filter { $0.type == billType }[index.first!]
                     guard !cate.original else {
                         showAlert = true
                         return
                     }
-                    categorys.removeAll(where: { $0 == cate })
+                    billConfig.categorys.removeAll(where: { $0 == cate })
+                    billConfig.saveData()
                 }
             }
         }
@@ -108,13 +108,7 @@ struct CategoryEditView: View {
 
 struct CategoryEditView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryEditView(categorys: .constant([
-            Category(icon: "shopping", name: "shopping", type: .out, original: true),
-            Category(icon: "game", name: "game", type: .out, original: true),
-            Category(icon: "payoff", name: "payoff", type: .in, original: true),
-            Category(icon: "standard", name: "standard", type: .out, original: true),
-            Category(icon: "wage", name: "wage", type: .in, original: true),
-            Category(icon: "redbag", name: "redbag", type: .in, original: true)
-        ]), showCategoryEditor: .constant(true))
+        CategoryEditView(showCategoryEditor: .constant(true))
+            .environmentObject(BillConfig())
     }
 }

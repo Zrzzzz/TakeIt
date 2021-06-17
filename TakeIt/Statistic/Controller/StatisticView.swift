@@ -159,6 +159,7 @@ fileprivate struct SectionHeaderModifier: ViewModifier {
 struct DayBillListView: View {
     @EnvironmentObject var billConfig: BillConfig
     @State private var currentDate = Date()
+    @State private var lStr: String = "loading..."
     
     var body: some View {
         ScrollView {
@@ -206,9 +207,15 @@ struct DayBillListView: View {
                     })
                 }
                 
-                Text("loading")
+                Text(lStr)
                     .onAppear {
                         billConfig.loadDayBills(daycnt: 5)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            lStr = "No more"
+                        }
+                    }
+                    .onDisappear {
+                        lStr = "loading..."
                     }
             }
         }

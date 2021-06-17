@@ -119,7 +119,8 @@ struct AddBillView: View {
         .background(Color.white.opacity(0.6))
         .cornerRadius(15)
         .sheet(isPresented: $showCategoryEditor, content: {
-            CategoryEditView(categorys: $billConfig.categorys, showCategoryEditor: $showCategoryEditor)
+            CategoryEditView(showCategoryEditor: $showCategoryEditor)
+                .environmentObject(billConfig)
         })
         .onAppear {
             if billConfig.isEditing {
