@@ -9,79 +9,82 @@ import SwiftUI
 
 
 struct HomeView: View {
-    @State private var bills: [Bill] = []
+    @EnvironmentObject var billConfig: BillConfig
+    @EnvironmentObject var userConfig: UserConfig
     
     @Binding var tabSelection: EntryView.EntryType
     
-    private var balance: Double {
-        return bills.map{ $0.category.type == .in ? $0.value : -$0.value }.reduce(0, +)
-    }
+    @State private var showAccountView: Bool = false
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button(action: {}, label: {
-                    Text(String(format: "Banlance %.1f", balance))
-                        .bold()
-                        .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
-                        .font(.title2)
-                    Image("user")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
-                })
-                .padding([.vertical, .trailing], 5)
-                .padding(.leading, 20)
-                .background(Color(#colorLiteral(red: 0.9764705882, green: 0.7843137255, blue: 0.05490196078, alpha: 1)))
-                .cornerRadius(10)
-            }
-            
-            Text("Shot")
-                .modifier(TitleModifier())
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 30) {
-                    ShotView(bills: $bills, showToday: true)
-                    ShotView(bills: $bills, showToday: false)
+        ZStack {
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: { showAccountView = true }, label: {
+                        Text(String(format: "Banlance %.1f", billConfig.balance))
+                            .bold()
+                            .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
+                            .font(.title2)
+                        Image("user")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
+                    })
+                    .padding([.vertical, .trailing], 5)
+                    .padding(.leading, 20)
+                    .background(Color(#colorLiteral(red: 0.9764705882, green: 0.7843137255, blue: 0.05490196078, alpha: 1)))
+                    .cornerRadius(10)
                 }
-                .padding()
-                .onTapGesture {
-                    withAnimation {
-                        tabSelection = .statistic
+                
+                Text("Shot")
+                    .modifier(TitleModifier())
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 30) {
+                        ShotView(bills: $billConfig.bills, showToday: true)
+                        ShotView(bills: $billConfig.bills, showToday: false)
+                    }
+                    .padding()
+                    .onTapGesture {
+                        withAnimation {
+                            tabSelection = .statistic
+                        }
                     }
                 }
+                
+                Text("OverView")
+                    .modifier(TitleModifier())
+                    .padding(.bottom, 20)
+                
+                OverviewSectionView(bills: $billConfig.bills)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             
-            Text("OverView")
-                .modifier(TitleModifier())
-                .padding(.bottom, 20)
             
-            OverviewSectionView(bills: $bills)
+            ZStack {
+                Color.clear
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        showAccountView = false
+                    }
+                AccountView(showAccountView: $showAccountView)
+                    .environmentObject(userConfig)
+                    .environmentObject(billConfig)
+            }
+            .opacity(showAccountView ? 1 : 0)
+            .animation(.easeInOut)
+                
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .onAppear(perform: loadData)
-    }
-    
-    private func loadData() {
-        if let filepath = Bundle.main.path(forResource: "testdata", ofType: "txt") {
-            do {
-                let contents = try String(contentsOfFile: filepath)
-                let decodedData = try JSONDecoder().decode([Bill].self, from: contents.data(using: .utf8)!)
-                self.bills = decodedData
-            } catch {
-                log(error)
-            }
-        } else {
-            log("Can't find data file")
-        }   
-//        self.chartData = [8,23,54,32,12,37,7,23,43]
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(tabSelection: .constant(.home))
+            .environmentObject(BillConfig())
+            .environmentObject(UserConfig())
     }
 }
 
@@ -199,7 +202,7 @@ fileprivate struct OverviewSectionView: View {
             }
             data.reverse()
         }
-
+        
         return data
     }
     

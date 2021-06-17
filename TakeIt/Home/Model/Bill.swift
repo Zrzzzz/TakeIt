@@ -34,7 +34,7 @@ struct Category: CategoryLike, Hashable {
     var original: Bool
 }
 
-struct Bill: Codable, Identifiable {
+struct Bill: Codable, Identifiable, Equatable {
     let id: UUID
     var category: Category
     var remarks: String

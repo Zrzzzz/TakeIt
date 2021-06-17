@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D329FB5A266CAF64007817E3 /* ScrollView+PreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D329FB59266CAF64007817E3 /* ScrollView+PreferenceKey.swift */; };
 		D3461F8F26677E0A00FF9847 /* AddBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3461F8E26677E0A00FF9847 /* AddBillView.swift */; };
+		D3884398267830D1007C5F9D /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3884397267830D1007C5F9D /* AccountView.swift */; };
+		D38843A026783492007C5F9D /* BillConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D388439F26783492007C5F9D /* BillConfig.swift */; };
+		D38843A426783498007C5F9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38843A326783498007C5F9D /* User.swift */; };
+		D38843A72678380D007C5F9D /* FrostedGlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38843A62678380D007C5F9D /* FrostedGlassView.swift */; };
 		D3A9E315265F4E5200372776 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A9E314265F4E5200372776 /* EntryView.swift */; };
 		D3BB39802664D93300E0BF4D /* BillCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB397F2664D93300E0BF4D /* BillCurveView.swift */; };
 		D3BB39872664E9A700E0BF4D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB39862664E9A700E0BF4D /* DateExtension.swift */; };
@@ -41,10 +46,17 @@
 		D3E37A4E265F443100E751F9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E37A4D265F443100E751F9 /* HomeView.swift */; };
 		D3E37A51265F444800E751F9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E37A50265F444800E751F9 /* LoginView.swift */; };
 		D3E4930E2664AC6900C52F53 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E4930D2664AC6900C52F53 /* Bill.swift */; };
+		D3F1DD982671C00700DDA4F8 /* CategoryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F1DD972671C00700DDA4F8 /* CategoryEditView.swift */; };
+		D3F1DD9C2671ED4300DDA4F8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F1DD9B2671ED4300DDA4F8 /* BlurView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D329FB59266CAF64007817E3 /* ScrollView+PreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+PreferenceKey.swift"; sourceTree = "<group>"; };
 		D3461F8E26677E0A00FF9847 /* AddBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillView.swift; sourceTree = "<group>"; };
+		D3884397267830D1007C5F9D /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		D388439F26783492007C5F9D /* BillConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillConfig.swift; sourceTree = "<group>"; };
+		D38843A326783498007C5F9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D38843A62678380D007C5F9D /* FrostedGlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrostedGlassView.swift; sourceTree = "<group>"; };
 		D3A9E314265F4E5200372776 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		D3BB397F2664D93300E0BF4D /* BillCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCurveView.swift; sourceTree = "<group>"; };
 		D3BB39862664E9A700E0BF4D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -80,6 +92,8 @@
 		D3E37A4D265F443100E751F9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D3E37A50265F444800E751F9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D3E4930D2664AC6900C52F53 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		D3F1DD972671C00700DDA4F8 /* CategoryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEditView.swift; sourceTree = "<group>"; };
+		D3F1DD9B2671ED4300DDA4F8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +107,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D388439A26783475007C5F9D /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				D388439E2678348A007C5F9D /* Model */,
+				D388439D26783485007C5F9D /* Controller */,
+				D388439C26783481007C5F9D /* View */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		D388439C26783481007C5F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D388439D26783485007C5F9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D3A9E314265F4E5200372776 /* EntryView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D388439E2678348A007C5F9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D388439F26783492007C5F9D /* BillConfig.swift */,
+				D38843A326783498007C5F9D /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D3BB399726661C3B00E0BF4D /* Statistic */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				D3461F8E26677E0A00FF9847 /* AddBillView.swift */,
+				D3F1DD972671C00700DDA4F8 /* CategoryEditView.swift */,
+				D329FB59266CAF64007817E3 /* ScrollView+PreferenceKey.swift */,
+				D3F1DD9B2671ED4300DDA4F8 /* BlurView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,7 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				D3E37A16265F431500E751F9 /* TakeItApp.swift */,
-				D3A9E314265F4E5200372776 /* EntryView.swift */,
+				D388439A26783475007C5F9D /* Entry */,
 				D3BB399726661C3B00E0BF4D /* Statistic */,
 				D3E493092664AC4700C52F53 /* Home */,
 				D3E37A54265F446100E751F9 /* Login */,
@@ -298,7 +349,9 @@
 		D3E4930A2664AC4E00C52F53 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D3884397267830D1007C5F9D /* AccountView.swift */,
 				D3BB397F2664D93300E0BF4D /* BillCurveView.swift */,
+				D38843A62678380D007C5F9D /* FrostedGlassView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,9 +446,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D38843A026783492007C5F9D /* BillConfig.swift in Sources */,
+				D329FB5A266CAF64007817E3 /* ScrollView+PreferenceKey.swift in Sources */,
 				D3BB39DC2666238900E0BF4D /* LineView.swift in Sources */,
 				D3BB39DA2666238900E0BF4D /* PieChartView.swift in Sources */,
 				D3BB39D72666238900E0BF4D /* PieChartRow.swift in Sources */,
+				D3884398267830D1007C5F9D /* AccountView.swift in Sources */,
 				D3BB39E12666238900E0BF4D /* MultiLineChartView.swift in Sources */,
 				D3E4930E2664AC6900C52F53 /* Bill.swift in Sources */,
 				D3BB39D82666238900E0BF4D /* PieChartHelpers.swift in Sources */,
@@ -403,14 +459,18 @@
 				D3BB39E02666238900E0BF4D /* Path+QuadCurve.swift in Sources */,
 				D3BB39E22666238900E0BF4D /* Line.swift in Sources */,
 				D3BB39D22666238900E0BF4D /* BarChartView.swift in Sources */,
+				D38843A72678380D007C5F9D /* FrostedGlassView.swift in Sources */,
 				D3BB39D92666238900E0BF4D /* PieChartCell.swift in Sources */,
 				D3461F8F26677E0A00FF9847 /* AddBillView.swift in Sources */,
+				D3F1DD9C2671ED4300DDA4F8 /* BlurView.swift in Sources */,
 				D3E37A51265F444800E751F9 /* LoginView.swift in Sources */,
+				D3F1DD982671C00700DDA4F8 /* CategoryEditView.swift in Sources */,
 				D3BB39D52666238900E0BF4D /* BarChartCell.swift in Sources */,
 				D3E37A42265F438C00E751F9 /* DataStorage.swift in Sources */,
 				D3BB39D32666238900E0BF4D /* BarChartRow.swift in Sources */,
 				D3BB39802664D93300E0BF4D /* BillCurveView.swift in Sources */,
 				D3E37A45265F439E00E751F9 /* log.swift in Sources */,
+				D38843A426783498007C5F9D /* User.swift in Sources */,
 				D3BB39DF2666238900E0BF4D /* MagnifierRect.swift in Sources */,
 				D3E37A17265F431500E751F9 /* TakeItApp.swift in Sources */,
 				D3BB39DB2666238900E0BF4D /* IndicatorPoint.swift in Sources */,

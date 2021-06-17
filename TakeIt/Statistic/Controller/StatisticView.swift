@@ -10,79 +10,69 @@ import SwiftUI
 typealias DayBill = (String, [Bill])
 
 struct StatisticView: View {
-    @State private var bills: [Bill] = []
-    
+    @EnvironmentObject var billConfig : BillConfig
     private var balance: Double {
-        return bills.map{ $0.category.type == .in ? $0.value : -$0.value }.reduce(0, +)
+        return billConfig.bills.map{ $0.category.type == .in ? $0.value : -$0.value }.reduce(0, +)
     }
-    @State private var currentDate = Date()
-    @State private var dayBills: [DayBill] = []
-    @State private var isAddingBill: Bool = true
+    
+    @State private var firstLoad = false
     
     var body: some View {
-        Group {
-            if isAddingBill {
-                AddBillView()
-            } else {
-                VStack {
-                    HStack {
-                        Text(String(format: "Balance: %.1f", balance))
-                            .bold()
-                            .font(.title)
-                        Spacer()
-                        Button(action: { withAnimation { isAddingBill = true } }, label: {
-                            HStack {
-                                Text("Add One")
-                                Image(systemName: "dollarsign.square.fill")
-                                    .renderingMode(.template)
-                            }
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color(#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)))
-                            .cornerRadius(15)
-                            .clipped()
-                            .shadow(color: Color(#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)), radius: 5, x: 2, y: 2)
-                        })
-                    }
-                    
-                    DayBillListView(dayBills: $dayBills)
+        ZStack {
+            VStack {
+                HStack {
+                    Text(String(format: "Balance: %.1f", balance))
+                        .bold()
+                        .font(.title)
+                    Spacer()
+                    Button(action: {
+                        withAnimation { billConfig.isAddingBill = true }
+                    }, label: {
+                        HStack {
+                            Text("Add One")
+                            Image(systemName: "dollarsign.square.fill")
+                                .renderingMode(.template)
+                        }
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color(#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)))
+                        .cornerRadius(15)
+                        .clipped()
+                        .shadow(color: Color(#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)), radius: 5, x: 2, y: 2)
+                    })
                 }
+                
+                DayBillListView()
+                    .onAppear {
+                        guard !firstLoad else { return }
+                        firstLoad = true
+//                        billConfig.loadDayBills(daycnt: 3)
+                    }
+                    .environmentObject(billConfig)
             }
-        }
-        .onAppear(perform: {
-            loadStoredBills()
-            loadData(daycnt: 7)
-        })
-    }
-    
-    private func loadStoredBills() {
-        if let filepath = Bundle.main.path(forResource: "testdata", ofType: "txt") {
-            do {
-                let contents = try String(contentsOfFile: filepath)
-                let decodedData = try JSONDecoder().decode([Bill].self, from: contents.data(using: .utf8)!)
-                self.bills = decodedData
-            } catch {
-                log(error)
+            
+            if billConfig.isAddingBill || billConfig.isEditing {
+                BlurView()
+                    .edgesIgnoringSafeArea(.all)
+                    .animation(.easeIn)
+                    .onTapGesture {
+                        withAnimation {
+                            billConfig.isAddingBill = false
+                            billConfig.isEditing = false
+                        }
+                    }
+                AddBillView()
+                    .environmentObject(billConfig)
+                    .animation(.easeIn)
             }
-        } else {
-            log("Can't find data file")
+            
         }
-    }
-    
-    private func loadData(daycnt: Int) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-dd"
         
-        for _ in 0..<daycnt {
-            let daystr = formatter.string(from: currentDate)
-            dayBills.append((daystr, bills.filter { Date(timeIntervalSince1970: TimeInterval($0.time)).isInSameDay(as: currentDate) }))
-            currentDate.addTimeInterval(-86400)
-        }
     }
 }
 
 fileprivate struct BillCellView: View {
-    @State var bill: Bill
+    @Binding var bill: Bill
     
     var body: some View {
         if bill.category.type == .out {
@@ -101,6 +91,7 @@ fileprivate struct BillCellView: View {
                         .foregroundColor(.secondary)
                 }
             }
+            .foregroundColor(.black)
             .padding()
             .frame(maxWidth: screen.width * 0.8, alignment: .leading)
             .background(Color(#colorLiteral(red: 0.6980392157, green: 1, blue: 0.662745098, alpha: 1)))
@@ -134,14 +125,15 @@ fileprivate struct BillCellView: View {
 struct StatisticView_Previews: PreviewProvider {
     static var previews: some View {
         StatisticView()
+            .environmentObject(BillConfig())
     }
 }
 
 struct BillCellView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            BillCellView(bill: Bill(id: UUID(), category: Category(icon: "shopping", name: "shopping", type: .in, original: true), remarks: "哈哈哈", timeString: "2021-06-01", value: 2333.3, time: 1617436628))
-            BillCellView(bill: Bill(id: UUID(), category: Category(icon: "shopping", name: "shopping", type: .out, original: true), remarks: "哈哈哈", timeString: "2021-06-01", value: 2333.3, time: 1617436628))
+            BillCellView(bill: .constant(Bill(id: UUID(), category: Category(icon: "shopping", name: "shopping", type: .in, original: true), remarks: "哈哈哈", timeString: "2021-06-01", value: 2333.3, time: 1617436628)))
+            BillCellView(bill: .constant(Bill(id: UUID(), category: Category(icon: "shopping", name: "shopping", type: .out, original: true), remarks: "哈哈哈", timeString: "2021-06-01", value: 2333.3, time: 1617436628)))
         }
     }
 }
@@ -165,34 +157,78 @@ fileprivate struct SectionHeaderModifier: ViewModifier {
 }
 
 struct DayBillListView: View {
-    @Binding var dayBills: [DayBill]
+    @EnvironmentObject var billConfig: BillConfig
+    @State private var currentDate = Date()
     
     var body: some View {
-        List {
-            ForEach(dayBills, id: \.0) { dayBill -> AnyView in
-                let dayIn = dayBill.1.filter { $0.category.type == .in }.map{ $0.value }.reduce(0, +)
-                let dayOut = dayBill.1.filter { $0.category.type == .out }.map{ $0.value }.reduce(0, +)
-                let dayTotal = dayIn + dayOut
-                
-                return AnyView(Section(header:
-                                        HStack(alignment: .top) {
-                                            Text(dayBill.0)
-                                                .bold()
-                                                .font(.title3)
-                                            Spacer()
-                                            Text(String(format: "In: %.1f Out: %.1f\nTotal: %.1f", dayIn, dayOut, dayTotal))
+        ScrollView {
+            LazyVStack {
+                ForEach(billConfig.dayBills, id: \.0) { dayBill -> AnyView in
+                    let dayIn = dayBill.1.filter { $0.category.type == .in }.map{ $0.value }.reduce(0, +)
+                    let dayOut = dayBill.1.filter { $0.category.type == .out }.map{ $0.value }.reduce(0, +)
+                    let dayTotal = dayIn + dayOut
+                    
+                    return AnyView(Section(header:
+                                            HStack(alignment: .top) {
+                                                Text(dayBill.0)
+                                                    .bold()
+                                                    .font(.title3)
+                                                Spacer()
+                                                Text(String(format: "In: %.1f Out: %.1f\nTotal: %.1f", dayIn, dayOut, dayTotal))
+                                            }
+                                            .modifier(SectionHeaderModifier())
+                    ) {
+                        VStack {
+                            ForEach(dayBill.1, id: \.id) { bill in
+                                Menu {
+                                    Button(action: {
+                                        withAnimation {
+                                            editBill(bill: bill)
                                         }
-                                        .modifier(SectionHeaderModifier())
-                ) {
-                    VStack {
-                        ForEach(dayBill.1, id: \.id) { bill in
-                            BillCellView(bill: bill)
-                                .frame(maxWidth: .infinity, alignment: bill.category.type == .in ? .trailing : .leading)
+                                    }, label: {
+                                        Text("Edit")
+                                    })
+                                    Button(action: {
+                                        withAnimation {
+                                            deleteBill(bill: bill)
+                                        }
+                                    }, label: {
+                                        Text("Delete")
+                                            .foregroundColor(.red)
+                                    })
+                                } label: {
+                                    BillCellView(bill: .constant(bill))
+                                        .frame(maxWidth: .infinity, alignment: bill.category.type == .in ? .trailing : .leading)
+                                }
+                            }
                         }
+                        .frame(maxWidth: .infinity)
+                    })
+                }
+                
+                Text("loading")
+                    .onAppear {
+                        billConfig.loadDayBills(daycnt: 5)
                     }
-                    .frame(maxWidth: .infinity)
-                })
             }
         }
+    }
+    
+    private func editBill(bill: Bill) {
+        billConfig.isEditing = true
+        billConfig.dayBillToEdit = bill
+    }
+    
+    private func deleteBill(bill: Bill) {
+        billConfig.bills.removeAll(where: { $0 == bill })
+        // 更新dayBills 没必要重复加载dayBills
+        for i in billConfig.dayBills.indices {
+            billConfig.dayBills[i].1.removeAll { $0 == bill }
+            if billConfig.dayBills[i].1.isEmpty {
+                billConfig.dayBills.remove(at: i)
+                break
+            }
+        }
+        billConfig.saveData()
     }
 }
