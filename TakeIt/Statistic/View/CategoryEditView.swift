@@ -20,6 +20,8 @@ struct CategoryEditView: View {
     
     var body: some View {
         VStack {
+            SlideBar()
+            
             HStack {
                 Button(action: {
                     withAnimation { addingCategory = true }
@@ -53,7 +55,6 @@ struct CategoryEditView: View {
                             addingCategory = false
                             billConfig.categorys.append(Category(icon: "", name: categoryName, type: billType, original: false))
                             categoryName = ""
-                            billConfig.saveData()
                         }
                     }, label: {
                         Text("confirm")
@@ -95,7 +96,6 @@ struct CategoryEditView: View {
                         return
                     }
                     billConfig.categorys.removeAll(where: { $0 == cate })
-                    billConfig.saveData()
                 }
             }
         }
@@ -110,5 +110,13 @@ struct CategoryEditView_Previews: PreviewProvider {
     static var previews: some View {
         CategoryEditView(showCategoryEditor: .constant(true))
             .environmentObject(BillConfig())
+    }
+}
+
+struct SlideBar: View {
+    var body: some View {
+        Color.secondary
+            .frame(width: 100, height: 6)
+            .clipShape(RoundedRectangle(cornerRadius: 2))
     }
 }

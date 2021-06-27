@@ -43,8 +43,8 @@ struct EntryView: View {
         .edgesIgnoringSafeArea(.bottom)
         .onAppear {
             UIScrollView.appearance().alwaysBounceVertical = false
-//            loadStoredBillsToCache()
             loadCache()
+//            loadStoredBillsToCache()
         }
     }
     
@@ -55,7 +55,8 @@ struct EntryView: View {
                 let contents = try String(contentsOfFile: filepath)
                 let decodedData = try JSONDecoder().decode([Bill].self, from: contents.data(using: .utf8)!)
                 let bills = decodedData
-                DataStorage.store(bills, in: .caches, as: "\(userConfig.user.phoneNumber)_data")
+                DataStorage.store(bills, in: .caches, as: "\(userConfig.user.phoneNumber)_\(billConfig.ledgers[billConfig.curLedger!].name)_data")
+                billConfig.ledgers[billConfig.curLedger!].value = bills.reduce(0, { $1.category.type == .in ? $0 + $1.value : $0 - $1.value} )
             } catch {
                 log(error)
             }

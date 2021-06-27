@@ -12,7 +12,8 @@ typealias DayBill = (String, [Bill])
 struct StatisticView: View {
     @EnvironmentObject var billConfig : BillConfig
     private var balance: Double {
-        return billConfig.bills.map{ $0.category.type == .in ? $0.value : -$0.value }.reduce(0, +)
+        guard billConfig.curLedger != nil && billConfig.curLedger! >= 0 && billConfig.curLedger! < billConfig.ledgers.count else { return 0.0}
+        return billConfig.ledgers[billConfig.curLedger!].value
     }
     
     @State private var firstLoad = false
@@ -50,6 +51,7 @@ struct StatisticView: View {
                     }
                     .environmentObject(billConfig)
             }
+            .padding()
             
             if billConfig.isAddingBill || billConfig.isEditing {
                 BlurView()
@@ -67,7 +69,6 @@ struct StatisticView: View {
             }
             
         }
-        
     }
 }
 
@@ -167,7 +168,7 @@ struct DayBillListView: View {
                 ForEach(billConfig.dayBills, id: \.0) { dayBill -> AnyView in
                     let dayIn = dayBill.1.filter { $0.category.type == .in }.map{ $0.value }.reduce(0, +)
                     let dayOut = dayBill.1.filter { $0.category.type == .out }.map{ $0.value }.reduce(0, +)
-                    let dayTotal = dayIn + dayOut
+                    let dayTotal = dayIn - dayOut
                     
                     return AnyView(Section(header:
                                             HStack(alignment: .top) {
@@ -227,6 +228,8 @@ struct DayBillListView: View {
     }
     
     private func deleteBill(bill: Bill) {
+        guard billConfig.curLedger != nil && billConfig.curLedger! >= 0 && billConfig.curLedger! < billConfig.ledgers.count else { return }
+        billConfig.ledgers[billConfig.curLedger!].value -= (bill.category.type == .in ? bill.value : -bill.value)
         billConfig.bills.removeAll(where: { $0 == bill })
         // 更新dayBills 没必要重复加载dayBills
         for i in billConfig.dayBills.indices {
@@ -236,6 +239,6 @@ struct DayBillListView: View {
                 break
             }
         }
-        billConfig.saveData()
+        billConfig.save()
     }
 }

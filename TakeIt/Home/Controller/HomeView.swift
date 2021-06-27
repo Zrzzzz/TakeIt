@@ -15,16 +15,39 @@ struct HomeView: View {
     @Binding var tabSelection: EntryView.EntryType
     
     @State private var showAccountView: Bool = false
+    @State private var selectLedger: Bool = false
+    
+    @AppStorage("login") var login: Bool = false
     
     var body: some View {
+        let showSelect = Binding<Bool> {
+            return login && selectLedger
+        } set: { (b) in
+            selectLedger =  b
+        }
+
+        
         ZStack {
             VStack {
                 HStack {
+                    Button(action: { selectLedger = true }, label: {
+                        HStack {
+                            Image(systemName: "dollarsign.square")
+                                .renderingMode(.template)
+                                .font(.title)
+                            Text("Ledger")
+                                .bold()
+                        }
+                        .foregroundColor(.black)
+                        .padding(5)
+                        .background(Color.yellow)
+                        .cornerRadius(15)
+                    })
                     Spacer()
                     Button(action: { showAccountView = true }, label: {
                         Text(String(format: "Banlance %.1f", billConfig.balance))
                             .bold()
-                            .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
+                            .foregroundColor(Color.black)
                             .font(.title2)
                         Image("user")
                             .resizable()
@@ -77,6 +100,20 @@ struct HomeView: View {
             .animation(.easeInOut)
                 
         }
+        .sheet(isPresented: showSelect, onDismiss: {
+            if billConfig.ledgers.isEmpty {
+                showSelect.wrappedValue = true
+            }
+        }, content: {
+            LedgerSelectView(selectLedger: $selectLedger)
+                .environmentObject(billConfig)
+                .environmentObject(userConfig)
+        })
+        .onAppear {
+            if billConfig.ledgers.isEmpty {
+                showSelect.wrappedValue = true
+            }
+        }
     }
 }
 
@@ -98,7 +135,7 @@ fileprivate struct ShotView: View {
             Calendar.current.isDateInYesterday(Date(timeIntervalSince1970: TimeInterval($0.time))) }
     }
     private var dayConsume: Double {
-        dayBills.reduce(0, { $0 + $1.value })
+        dayBills.reduce(0, { $1.category.type == .in ? $0 + $1.value : $0 - $1.value})
     }
     
     var body: some View {
@@ -120,7 +157,7 @@ fileprivate struct ShotView: View {
                         .textCase(.uppercase)
                         .frame(maxHeight: .infinity)
                 } else {
-                    ForEach(dayBills.prefix(3)) { bill -> AnyView in
+                    ForEach(dayBills.sorted(by: { $0.value > $1.value }).prefix(3)) { bill -> AnyView in
                         let isin = bill.category.type == .in
                         return AnyView(
                             HStack {

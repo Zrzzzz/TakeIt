@@ -131,16 +131,23 @@ struct AddBillView: View {
     }
     
     private func addBill() {
+        // 编辑账单
         if billConfig.isEditing {
             let billIdx = billConfig.bills.firstIndex(where: { $0.id == newBill.id })
             guard billIdx != nil else { return }
             billConfig.bills[billIdx!] = newBill
+            billConfig.ledgers[billConfig.curLedger!].value += (
+                (billConfig.bills[billIdx!].category.type == .in ? billConfig.bills[billIdx!].value : -billConfig.bills[billIdx!].value) +
+                    (newBill.category.type == .in ? newBill.value : -newBill.value)
+            )
             for i in billConfig.dayBills.indices {
                 let idx = billConfig.dayBills[i].1.firstIndex(where: { $0.id == newBill.id })
                 guard idx != nil else { continue }
                 billConfig.dayBills[i].1[idx!] = newBill
             }
-        } else {
+        }
+        // 添加账单
+        else {
             let formatter = DateFormatter()
             formatter.dateFormat = "YYYY-MM-dd"
             billConfig.bills.append(newBill)
@@ -150,8 +157,10 @@ struct AddBillView: View {
             } else {
                 billConfig.dayBills.insert((formatter.string(from: Date()), [newBill]), at: 0)
             }
+            billConfig.ledgers[billConfig.curLedger!].value += (newBill.category.type == .in ? newBill.value : -newBill.value)
         }
-        billConfig.saveData()
+        
+        billConfig.save()
     }
 }
 
